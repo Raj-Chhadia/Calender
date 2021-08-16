@@ -44,9 +44,4 @@ void main(){
     case 6 :
         printf("Saturday");
         break;
-    
-    default:
-        break;
-    }
-
 }
