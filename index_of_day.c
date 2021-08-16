@@ -4,7 +4,7 @@
 // input : dd/mm/yy
 // output : index of day ( if on dd/mm/yy date has monday than function return 1  )
 
-int dayNumber(int day, int month, int year)
+int dayIndex(int day, int month, int year)
 {
   
     static int t[] = { 0, 3, 2, 5, 0, 3,
@@ -19,7 +19,7 @@ int dayNumber(int day, int month, int year)
 
 void main(){
     
-    int day = dayNumber(17,8,2021);
+    int day = dayIndex(17,8,2021);
 
     switch (day)
     {
