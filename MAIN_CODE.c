@@ -1,5 +1,5 @@
-#include<stdio.h>
 
+#include<stdio.h>
 
 
 // dayIndex() function will return day-index according to date
