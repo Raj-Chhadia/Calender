@@ -19,6 +19,18 @@ int dayIndex(int day, int month, int year)
 }
 
 
+int leapYear(int year){
+
+    if (year % 400 == 0)
+        return 29;
+    if (year % 100 == 0)
+        return 28;
+    if (year % 4 == 0)
+        return 29;
+    return 28;
+}
+
+
 // printMonth() function print whole month
 // intput : printMonth(1,2021)
 // output : 
@@ -36,7 +48,7 @@ int dayIndex(int day, int month, int year)
 void printMonth(int month, int year){
 
     // this array represent number of day in month EXAMPLE : january(31), february(28/29), march(31)...............
-    int leap = 28;
+    int leap = leapYear(year);
     int number_of_day_in_month[12] = { 31, leap, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
     int initial_space;
