@@ -2,9 +2,6 @@
 
 
 
-
-
-
 // dayIndex() function will return day-index according to date
 // input : 18,08,2021
 // output : 4 ( day code for wednesday )
