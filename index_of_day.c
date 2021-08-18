@@ -1,5 +1,14 @@
 #include<stdio.h>
 
+
+
+
+
+
+// dayIndex() function will return day-index according to date
+// input : 18,08,2021
+// output : 4 ( day code for wednesday )
+
 int dayIndex(int day, int month, int year)
 {
   
@@ -13,19 +22,31 @@ int dayIndex(int day, int month, int year)
            % 7;
 }
 
+
+// printMonth() function print whole month
+// intput : printMonth(1,2021)
+// output : 
+// --------------------------------------------
+// January
+
+// SUN   MON   TUE   WED   THU   FRI   SAT
+//                               01    02
+// 03    04    05    06    07    08    09
+// 10    11    12    13    14    15    16
+// 17    18    19    20    21    22    23
+// 24    25    26    27    28    29    30
+// 31
+
 void printMonth(int month, int year){
 
-    printf("\n\nSUN   MON   TUE   WED   THU   FRI   SAT\n");
-
-    int day = dayIndex( 1 , month , year );
-
-    int initial_space; 
-    int space_between_dates = 4 ;
+    // this array represent number of day in month EXAMPLE : january(31), february(28/29), march(31)...............
     int leap = 28;
     int number_of_day_in_month[12] = { 31, leap, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
+    int initial_space;
+
     // deciding initial space for month
-    switch (day)
+    switch (  dayIndex( 1 , month , year ) )
     {
     case 0 :
         initial_space = 0;
@@ -50,33 +71,37 @@ void printMonth(int month, int year){
         break;
     }
 
+    printf("\n\nSUN   MON   TUE   WED   THU   FRI   SAT\n");
 
+    // actual printing of month starts from here
     for(int i=1; i<= number_of_day_in_month[month-1]; i++){
-        // printing initial space
+
+        
+        // printing initial space --> this will execute for 1st date of all months (1 to 12)  
         if(i==1){
             for(int i=0;i<initial_space; i++ ){
                 printf(" ");
             }
         }
-        // printing data
-        printf("%.2d",i);
+        
+        // printing data number Example { 11    12    13    14    15    17    18 .............. }
+        printf("%.2d    ",i);
 
-        // printing space between two date
-        for(int i=0;i<space_between_dates; i++ ){
-                printf(" ");
-        }
-
-        // line break when day = saturday
+        
+        // line break after day = SAT(saturday)
         if( dayIndex(i,month,year) == 6 ){
             printf("\n");
         }   
     }
 }
 
+
+// this function calls the another function [ printMonth(month,year) ] 12 times
 void printYear(int year){
 
     for(int month = 1; month < 13; month++){
 
+        // printing name of the month in heading 
         switch (month)          
         {
         case 1 :
@@ -129,18 +154,21 @@ void printYear(int year){
     
         }
 
+        // calling printMonth { this function, total 12 time called during ececution of the loop }
         printMonth(month,year);
     }
 }
 
 
+// main function : program execution start from here
 void main(){
 
     int year;
-    
+
     printf("Enter the year :");
     scanf("%d",&year);
 
+    // calling printYear() function
     printYear(year);
     
 }
