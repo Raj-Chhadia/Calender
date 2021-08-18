@@ -150,7 +150,7 @@ void printCalendar(int year)
         // Print the columns
         printf(" Sun   Mon  Tue  Wed  Thu  Fri  Sat\n");
   
-        // Print appropriate spaces
+        // Print appropriate initial_spaces
         int k;
         for (k = 0; k < current; k++)
             printf("     ");
