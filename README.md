@@ -5,5 +5,5 @@
 * *and then print the calender of whole year*
 
 ### group
-* Raj Chhadia
 * Viral Gajera 
+* Raj Chhadia
